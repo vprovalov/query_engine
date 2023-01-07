@@ -33,6 +33,10 @@ public class Projection implements LogicalPlan {
         return result;
     }
 
+    public LogicalPlan getInput() { return this.input; }
+
+    public List<LogicalExpr> getExpr() { return this.expr; }
+
     @Override
     public String toString() {
         return "Projection: " + String.join(", ", expr.stream().map(it -> it.toString()).collect(Collectors.toList()));

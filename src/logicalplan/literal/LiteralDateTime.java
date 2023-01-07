@@ -26,4 +26,6 @@ public class LiteralDateTime implements LogicalExpr {
     public String toString() {
         return this.dateFormat.format(this.value);
     }
+
+    public Date getValue() { return this.value; }
 }

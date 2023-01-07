@@ -19,4 +19,8 @@ public abstract class BinaryExpr implements LogicalExpr {
     public String toString() {
         return this.left.toString() + " " + this.op + " " + this.right.toString();
     }
+
+    public LogicalExpr getLeft() { return this.left; }
+    public LogicalExpr getRight() { return this.right; }
+    public String getOperation() { return this.op; }
 }

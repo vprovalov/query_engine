@@ -1,5 +1,8 @@
 package datatypes;
 
+import datatypes.column.BooleanColumnVector;
+import physicalplan.expression.literal.LiteralBooleanExpression;
+
 public class LiteralValueVector implements ColumnVector {
     private final FieldType type;
     private final int size;
@@ -28,5 +31,14 @@ public class LiteralValueVector implements ColumnVector {
     @Override
     public int getSize() {
         return this.size;
+    }
+
+    @Override
+    public ColumnVector filter(BooleanColumnVector bitVector) {
+        if (bitVector.getSize() != this.getSize()) {
+            throw new IllegalStateException("Bit vector size doesn't match column size");
+        }
+
+        return new LiteralValueVector(this.type, bitVector.countPositives(), this.value);
     }
 }

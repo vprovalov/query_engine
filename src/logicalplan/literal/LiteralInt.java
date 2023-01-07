@@ -22,4 +22,6 @@ public class LiteralInt implements LogicalExpr {
     public String toString() {
         return Integer.toString(this.value);
     }
+
+    public int getValue() { return this.value; }
 }

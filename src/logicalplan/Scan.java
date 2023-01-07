@@ -3,6 +3,7 @@ package logicalplan;
 import datasource.DataSource;
 import datatypes.Schema;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +37,33 @@ public class Scan implements LogicalPlan {
         return new ArrayList<>();
     }
 
+    public DataSource getDataSource() {
+        return this.dataSource;
+    }
+
+    public List<String> getProjection() {
+        return this.projection;
+    }
+
     @Override
     public String toString() {
-        return this.projection.size() > 0 ?
-            "Scan: " + this.path + "; projection=" + String.join(", ", this.projection) :
-            "Scan: " + this.path + "; projection=none";
+        final StringBuilder sb = new StringBuilder();
+        sb.append("Scan: ");
+        sb.append(this.path);
+        sb.append("; projection=");
+
+        if (this.projection.size() > 0) {
+            sb.append("[");
+            sb.append(String.join(", ", this.projection));
+            sb.append("]");
+        } else {
+            sb.append("none");
+        }
+
+        return sb.toString();
+    }
+
+    public String getPath() {
+        return path;
     }
 }

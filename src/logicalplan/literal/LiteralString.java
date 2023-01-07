@@ -22,4 +22,6 @@ public class LiteralString implements LogicalExpr {
     public String toString() {
         return "'" + this.value + "'";
     }
+
+    public String getValue() { return this.value; }
 }

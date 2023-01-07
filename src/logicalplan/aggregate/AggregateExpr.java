@@ -19,6 +19,10 @@ public class AggregateExpr implements LogicalExpr {
         return new Field(expr.toField(logicalPlan).getType(), this.name);
     }
 
+    public LogicalExpr getExpr() {
+        return this.expr;
+    }
+
     @Override
     public String toString() {
         return this.name + "(" + this.expr.toString() + ")";

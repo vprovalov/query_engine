@@ -22,4 +22,6 @@ public class LiteralFloat implements LogicalExpr {
     public String toString() {
         return Float.toString(this.value);
     }
+
+    public float getValue() { return this.value; }
 }

@@ -16,4 +16,17 @@ public class Field {
         this.type = type;
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+
+        sb.append("Field(");
+        sb.append("name=");
+        sb.append(this.name);
+        sb.append(", ");
+        sb.append(this.type.name());
+        sb.append(")");
+        return sb.toString();
+    }
 }

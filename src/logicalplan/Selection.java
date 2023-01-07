@@ -26,6 +26,9 @@ public class Selection implements LogicalPlan {
         return result;
     }
 
+    public LogicalPlan getInput() { return this.input; }
+    public LogicalExpr getExpr() { return this.expr; }
+
     @Override
     public String toString() {
         return "Filter: " + this.expr.toString();

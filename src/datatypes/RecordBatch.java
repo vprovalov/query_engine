@@ -26,4 +26,5 @@ public class RecordBatch {
     public ColumnVector getField(int index) {
         return this.fields.get(index);
     }
+    public Schema getSchema() { return this.schema; }
 }

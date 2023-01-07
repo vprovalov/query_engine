@@ -54,4 +54,19 @@ public class Schema {
 
         return -1;
     }
+
+    public Set<String> getFieldNames() {
+        return this.fields.stream().map(field -> field.getName()).collect(Collectors.toSet());
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+
+        sb.append("Schema(");
+        sb.append(String.join(", ", this.fields.stream().map(field -> field.toString()).collect(Collectors.toList())));
+        sb.append(")");
+
+        return sb.toString();
+    }
 }

@@ -22,4 +22,6 @@ public class LiteralBoolean implements LogicalExpr {
     public String toString() {
         return Boolean.toString(this.value);
     }
+
+    public boolean getValue() { return this.value; }
 }
